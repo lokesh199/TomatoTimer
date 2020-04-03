@@ -1,0 +1,53 @@
+.complete-page
+{
+    background-image: url(https://miro.medium.com/max/4800/1*_7k2DjyEDen5V7HsBQCqbA.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.entry-text
+{
+    /* border: 2px solid black; */
+    width: 52%;
+    font-family: cambria math;
+    margin: 11em 15em 0 10em;
+    padding: 2em;
+    color: #333649;
+    background-color: #D9C0AA; /*before color*/
+}
+#first-line
+{
+    font-size: 1.5em;
+    /* border: 1px solid white; */
+    margin: 1% 0 1% 0;
+}
+#second-line
+{
+    font-size: 7em;
+    /* border: 1px solid white; */
+    margin: 1% 0 1% 0;
+}
+#third-line
+{
+    font-size: 2em;
+    /* border: 1px solid white; */
+    margin: 1% 0 1% 0;
+}
+#fourth-line
+{
+    font-size: 2.5em;
+    /* border: 1px solid white; */
+    margin: 1% 0 1% 0;
+}
+#redirect-button
+{
+    padding: 10px 20px 10px 20px;
+    font-size: large;
+    vertical-align: middle;
+    background-color: #ffc20a;
+    border-color: #ffc20a;
+    color: #333649;
+}
+.timer
+{
+    border: 1px solid black;
+}
