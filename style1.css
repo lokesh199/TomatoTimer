@@ -1,6 +1,12 @@
-#complete-page
+#front-page
 {
     background-image: url(https://miro.medium.com/max/4800/1*_7k2DjyEDen5V7HsBQCqbA.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#porodoro-timer-page
+{
+    background-image: url(https://i.imgur.com/7lisvJV.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
