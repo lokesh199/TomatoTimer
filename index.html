@@ -4,15 +4,21 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="/style1.css">
+    <script type="text/javascript" src="timer.js"></script>
 </head>
 
-<body class="complete-page">
+<body id="complete-page">
     <div class="entry-text">
         <p id="first-line">Are you ready to make yourself </p>
         <p id="second-line">Productive?</p>
         <p id="third-line">So are we.</p>
-        <p id="fourth-line">Click here so that we can help you. <a href="./timer.html">
-                <button id="redirect-button">Focus</button></a></p>
+        <!-- <p id="fourth-line">Click here so that we can help you. <a href="./timer.html">
+                <button id="redirect-button" onclick="blurBackground(1)">Focus</button></a></p> -->
+        <!-- I commented this sothat i can check if the blur is working or not. Because even after 
+            applying blur there was no change on the output of timer.html -->
+
+        <p id="fourth-line">Click here so that we can help you. <button id="redirect-button"
+                onclick="blurBackground(1)">Focus</button></p>
 
     </div>
 </body>
