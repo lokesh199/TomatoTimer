@@ -4,12 +4,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-#porodoro-timer-page
-{
-    background-image: url(https://i.imgur.com/7lisvJV.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .entry-text
 {
     /* border: 2px solid black; */
@@ -57,3 +51,33 @@
 {
     border: 1px solid black;
 }
+.pomodoro{
+    text-align: center;
+}
+.btn{
+    background-color: #916dd5; 
+    border-radius: 28px;
+    height: 70px;
+    width: 140px;
+    margin-top: -40px;
+    margin-right:150px;
+    margin-left: 100px;
+    font-size: 20px;
+
+}
+.display{
+    font-family: -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+    'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 120px;
+    margin-top: 0px;
+    margin-left: -30px;
+}
+
+.display__time-left {
+    font-weight: 100;
+    font-size: 20rem;
+    margin: 0;
+    color: white;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+  }
