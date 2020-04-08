@@ -4,7 +4,18 @@ timeLeft.textContent = '25:00';
 
 const twentyFiveMinuteButton = document.querySelector('#twentyFiveMin');
 twentyFiveMinuteButton.addEventListener('click' , () => {
-    pomodoroTimer(1500);
+    if(twentyFiveMinuteButton.textContent == 'RESET'){
+        clearInterval(countDown);
+        timeLeft.textContent = '00:00';
+        twentyFiveMinuteButton.innerHTML = 'RESTART';
+    }
+    else if(twentyFiveMinuteButton.textContent == 'PAUSE'){
+        clearInterval(countDown);
+        twentyFiveMinuteButton.innerHTML = 'RESET';
+    }
+    else{
+        pomodoroTimer(1500);
+    }
 })
 
 function pomodoroTimer(seconds){
@@ -21,7 +32,7 @@ function pomodoroTimer(seconds){
             twentyFiveMinuteButton.innerHTML = 'RESTART';
             return;
         }
-        twentyFiveMinuteButton.innerHTML = 'RUNNING';
+        twentyFiveMinuteButton.innerHTML = 'PAUSE';
         displayTimeLeft(secondsLeft);
 
     } , 1000);
