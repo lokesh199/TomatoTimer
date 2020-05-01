@@ -1,9 +1,17 @@
 let countDown, modeSelected;
 let timeLeft = document.querySelector('.displayTimeLeft');
+let isPaused = true;
+let isTimerSelected = false;
 timeLeft.textContent = 'Select a Timer';
+
+function changedTheMode() {
+    isPaused = true;
+    isTimerSelected = true;
+}
 
 const beastMode = document.querySelector('#mostProductive');
 beastMode.addEventListener('click', () => {
+    changedTheMode();
     clearInterval(countDown);
     timeLeft.textContent = "45:00";
     modeSelected = "beast";
@@ -11,6 +19,7 @@ beastMode.addEventListener('click', () => {
 
 const pomodoro = document.querySelector('#pomodoroTimer');
 pomodoro.addEventListener('click', () => {
+    changedTheMode();
     clearInterval(countDown);
     timeLeft.textContent = "25:00";
     modeSelected = "pomodoro";
@@ -18,6 +27,7 @@ pomodoro.addEventListener('click', () => {
 
 const shortBreak = document.querySelector('#shortBreak');
 shortBreak.addEventListener('click', () => {
+    changedTheMode();
     clearInterval(countDown);
     timeLeft.textContent = "5:00";
     modeSelected = "short-break";
@@ -25,6 +35,7 @@ shortBreak.addEventListener('click', () => {
 
 const longBreak = document.querySelector('#longBreak');
 longBreak.addEventListener('click', () => {
+    changedTheMode();
     clearInterval(countDown);
     timeLeft.textContent = "15:00";
     modeSelected = "long-break";
@@ -44,20 +55,31 @@ function stringToSeconds(s) {
 
 const startTimer = document.querySelector('#start');
 startTimer.addEventListener('click', () => {
-    let totalSeconds = timeLeft.textContent;
-    totalSeconds = stringToSeconds(totalSeconds)
-    timer(totalSeconds);
-
+    if (isPaused === true) {
+        if (isTimerSelected === true) {
+            isPaused = false;
+            let totalSeconds = timeLeft.textContent;
+            totalSeconds = stringToSeconds(totalSeconds)
+            timer(totalSeconds);
+        }
+        else {
+            alert("Select a Timer First!");
+        }
+    }
 });
 
 const pauseTimer = document.querySelector('#pause');
 pauseTimer.addEventListener('click', () => {
-    console.log('paused');
-    clearInterval(countDown);
+    if (isPaused === false) {
+        isPaused = true;
+        console.log('paused');
+        clearInterval(countDown);
+    }
 });
 
 const resetTimer = document.querySelector('#reset');
 resetTimer.addEventListener('click', () => {
+    isPaused = true;
     console.log('reset done');
     clearInterval(countDown);
     if (modeSelected === "beast") {
@@ -70,7 +92,7 @@ resetTimer.addEventListener('click', () => {
         timeLeft.textContent = "5:00";
     }
     else if (modeSelected === "long-break") {
-        timeLeft.textContent = "15: 00";
+        timeLeft.textContent = "15:00";
     }
     // else if (modeSelected === "custom")
     // {
@@ -95,9 +117,7 @@ resetTimer.addEventListener('click', () => {
 // })
 
 function timer(seconds) {
-    // const timeNow = Date.now();
     const timeThen = Date.now() + seconds * 1000;
-    // displayTimeLeft(seconds);
     countDown = setInterval(() => {
         //We are using Date.now() again to get the exact time currently, because timeNow will contain outdated value
         const secondsLeft = Math.round((timeThen - Date.now()) / 1000);
