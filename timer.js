@@ -104,6 +104,7 @@ beastMode.addEventListener('click', () => {
     changedTheMode();
     clearInterval(countDown);
     timeLeft.textContent = "45:00";
+    document.title = "45:00";
     modeSelected = "beast";
 });
 
@@ -192,15 +193,19 @@ resetTimer.addEventListener('click', () => {
     clearInterval(countDown);
     if (modeSelected === "beast") {
         timeLeft.textContent = "45:00";
+        document.title = "45:00";
     }
     else if (modeSelected === "pomodoro") {
         timeLeft.textContent = "25:00";
+        document.title = "25:00";
     }
     else if (modeSelected === "short-break") {
         timeLeft.textContent = "5:00";
+        document.title = "5:00";
     }
     else if (modeSelected === "long-break") {
         timeLeft.textContent = "15:00";
+        document.title = "15:00";
     }
     else if (modeSelected === "custom-timer") {
         customTimerSet();
