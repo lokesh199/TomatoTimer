@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Pomodoro Timer</title>
+    <title>Productivity Timer</title>
     <link rel="stylesheet" href="style1.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" type='text/css'>
 </head>
@@ -18,7 +18,7 @@
         </div>
         <div class="pomodoro">
             <div class="display">
-                <h2 class="displayTimeLeft"></h1>
+                <h2 class="displayTimeLeft"></h2>
             </div>
             <div class="timerControllers">
                 <button class="timerController" id="pause">PAUSE</button>
@@ -26,6 +26,23 @@
                 <button class="timerController" id="reset">RESET</button>
             </div>
         </div>
+    </div>
+    <div id="darker-background">
+        <div class="modal-content">
+            <div class="close-modal">
+                <span id="close-button">&times;</span>
+            </div>
+            <div class="input">
+                <!-- <form action="" method="get" class="custom-input"> -->
+                <input class="time-input" id="hours" type="text" placeholder="Hours">
+                <input class="time-input" id="minutes" type="text" placeHolder="Minutes">
+                <input class="time-input" id="seconds" type=" text" placeHolder="Seconds">
+            </div>
+            <div class="timer-set">
+                <button id="custom-timer-set" onclick="customTimerSet()">Set</button>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="timer.js"></script>
 </body>
