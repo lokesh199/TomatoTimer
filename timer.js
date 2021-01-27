@@ -210,6 +210,7 @@ resetTimer.addEventListener('click', () => {
     else if (modeSelected === "custom-timer") {
         customTimerSet();
     }
+    alarmTrack.pause();
 })
 
 // const twentyFiveMinuteButton = document.querySelector('#twentyFiveMin');
@@ -228,6 +229,9 @@ resetTimer.addEventListener('click', () => {
 //     }
 // })
 
+const alarmTrack = document.createElement('audio')
+alarmTrack.src = "./alarm_windows_10.mp3";
+
 function timer(seconds) {
     console.log(seconds);
     const timeThen = Date.now() + seconds * 1000;
@@ -235,13 +239,20 @@ function timer(seconds) {
         //We are using Date.now() again to get the exact time currently, because timeNow will contain outdated value
         const secondsLeft = Math.round((timeThen - Date.now()) / 1000);
 
+        displayTimeLeft(secondsLeft);
+        console.log(secondsLeft);
+
         //To make sure that our timer doesn't go till negative
-        if (secondsLeft <= -1) {
+        if (secondsLeft <= 0) {
             clearInterval(countDown);
+            async function terminate() {
+                async function Alert() { alarmTrack.play(); }
+                Alert();
+                alert('time up');
+            }
+            terminate();
             return;
         }
-        console.log(secondsLeft);
-        displayTimeLeft(secondsLeft);
     }, 1000);
 }
 function displayTimeLeft(seconds) {
